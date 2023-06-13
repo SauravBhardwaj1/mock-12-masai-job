@@ -1,10 +1,12 @@
 const express = require("express")
 const { jobRoutes } = require("./Routes/Job.Route")
 const { connection } = require("./config/db")
+var cors = require('cors')
 require('dotenv').config()
 
 const app = express()
 
+app.use(cors())
 app.use(express.json())
 
 app.use("/jobs", jobRoutes)
